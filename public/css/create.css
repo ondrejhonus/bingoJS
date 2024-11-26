@@ -10,3 +10,68 @@ main{
     align-items: center;
     flex-direction: column;
 }
+
+div.playfield {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    margin-top: 6em;
+    overflow:scroll;
+}
+
+div.row{
+    display: flex;
+    flex-direction: row;
+}
+
+div.cell {
+    border: solid 2px #bdbdbd;
+    text-align: center;
+    width: 10vh;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+.celltext{
+    background-color: rgba(240, 248, 255, 0);
+    width: 10vh;
+    height: 10vh;
+    color: white;
+    font-size: large;
+    resize: none;
+}
+
+div.icons{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+    background-color: #0b0b0c;
+    width: 12em;
+    padding: .3em;
+}
+    
+
+div.icons img{
+    width: 1.5em;
+    vertical-align: middle;
+    margin: 0 1em;
+    filter: invert(80%);
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
