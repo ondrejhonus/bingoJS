@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bingo creator</title>
+    <title>BingoJS</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="css/menu.css">
 </head>
@@ -13,8 +13,14 @@
     </header>
     <main>
         <h2 class="header is-size-1 mb-5">BingoJS</h2>
-        <button class="button start-btn is-medium is-success mb-2" onclick="playBingo();">Play</button>
-        <button class="button start-btn is-medium is-warning" onclick="createBingo();">Create</button>
+        <button class="button start-btn is-medium is-success mb" onclick="playToggle();">Play</button>
+        <div class="input-div">
+            <form action="javascript:;" onsubmit="playBingo()">
+                <input type="number" class="cardid input input-field is-medium mt-1 invis" id="cardidinput" placeholder="Card ID" required>
+                <button class="button submit input-field-btn is-medium mt-1 invis" id="cardidbtn">Join</button>
+            </form>
+        </div>
+        <button class="button start-btn is-medium is-warning mt-3" onclick="createBingo();">Create</button>
     </main>
     <footer>
         <div class="icons">
@@ -23,6 +29,6 @@
             <a href="https://ondrejhonus.com/" target="_blank"><img src="img/website.png" alt="website"></a>
         </div>
     </footer>
-    
+<script src="js/menu.js"></script>
 </body>
 </html>

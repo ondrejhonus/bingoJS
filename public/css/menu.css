@@ -15,6 +15,18 @@ main{
     width: 25vh;
 }
 
+.input-field{
+    width: 17vh;
+}
+
+.input-field-btn{
+    width: 8vh;
+}
+
+.invis{
+    display: none;
+}
+
 div.icons{
     margin: auto;
     display: flex;

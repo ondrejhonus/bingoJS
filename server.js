@@ -17,6 +17,14 @@ app.get('/', (req, res) => {
   res.render("menu");
 });
 
+app.get('/create', (req, res) => {
+  res.render("create");
+});
+
+app.get('/play', (req, res) => {
+  res.render("play");
+});
+
 io.on('connection', (socket) => {
     console.log("conection");
 });
