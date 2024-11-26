@@ -1,0 +1,43 @@
+html, body{
+    height: 100%;
+    margin: auto;
+}
+
+main{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.start-btn{
+    width: 25vh;
+}
+
+div.icons{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+    background-color: #0b0b0c;
+    width: 12em;
+    padding: .3em;
+}
+    
+
+div.icons img{
+    width: 1.5em;
+    vertical-align: middle;
+    margin: 0 1em;
+    filter: invert(80%);
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
