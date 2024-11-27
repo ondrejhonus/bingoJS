@@ -12,12 +12,8 @@
 
     </header>
     <main>
-        <section class="section">
-            <div class="container">
-              <h1 class="title">Bingo Card ID: <%= cardid %></h1>
-              <div class="playfield"></div>
-            </div>
-          </section>
+        <h1 class="title cardid has-text-grey-light">Bingo Card ID: <span class="has-text-success"><%= cardid %></span></h1>
+        <div class="playfield"></div>
     </main>
     <script>
         document.addEventListener('DOMContentLoaded', function fillPlayfield() {
@@ -30,7 +26,7 @@
             row.dataset.row = i;
             for (let j = 0; j < 5; j++) {
               let cell = `<div class="cell" id="${cellid}">
-                            <p class="celltext">${cardData[cellid]}</p>
+                            <p class="celltext has-text-weight-bold">${cardData[cellid]}</p>
                           </div>`;
               row.innerHTML += cell;
               cellid++;

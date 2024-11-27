@@ -48,6 +48,16 @@ div.cell {
     font-size: large;
     resize: none;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardid{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: .5em .7em;
 }
 
 div.icons{
