@@ -5,15 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Bingo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-    <link rel="stylesheet" href="css/create.css">
+    <link rel="stylesheet" href="css/play.css">
 </head>
 <body>
     <header>
 
     </header>
     <main>
-
+        <section class="section">
+            <div class="container">
+              <h1 class="title">Bingo Card ID: <%= cardid %></h1>
+              <div class="playfield"></div>
+            </div>
+          </section>
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function fillPlayfield() {
+          const cardData = <%- JSON.stringify(card) %>; // Embed card data into the script
+          let playfield = document.querySelector(".playfield");
+          let cellid = 0;
+          for (let i = 0; i < 5; i++) {
+            let row = document.createElement("div");
+            row.classList.add("row");
+            row.dataset.row = i;
+            for (let j = 0; j < 5; j++) {
+              let cell = `<div class="cell" id="${cellid}">
+                            <p class="celltext">${cardData[cellid]}</p>
+                          </div>`;
+              row.innerHTML += cell;
+              cellid++;
+            }
+            playfield.appendChild(row);
+          }
+        }, false);
+      </script>
     <footer>
         <div class="icons">
             <a href="https://github.com/ondrejhonus/" target="_blank"><img src="img/github.png" alt="GitHub link"></a>
@@ -21,6 +46,6 @@
             <a href="https://ondrejhonus.com/" target="_blank"><img src="img/website.png" alt="website"></a>
         </div>
     </footer>
-<script src="js/play.js"></script>
+<!-- <script src="js/play.js"></script> -->
 </body>
 </html>
