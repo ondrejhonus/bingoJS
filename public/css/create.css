@@ -47,6 +47,14 @@ div.cell {
     color: white;
     font-size: large;
     resize: none;
+    text-align: center;
+}
+
+.create-btn{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: .5em .7em;
 }
 
 div.icons{

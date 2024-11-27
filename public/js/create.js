@@ -1,3 +1,5 @@
+let values = [];
+
 function fillPlayfield() {
     let playfield = document.querySelector(".playfield");
     var cellid = 0
@@ -16,3 +18,17 @@ function fillPlayfield() {
     }
   }
   fillPlayfield();
+
+  function createCard() {
+    let cells = document.querySelectorAll(".cell");
+    for (let i = 0; i < cells.length; i++) {
+      let cellTextarea = cells[i].querySelector(".celltext");
+      console.log(cellTextarea.value);
+      if(cellTextarea.value == ""){
+        alert("Please fill out all cells.")
+        return;
+      }
+      values.push(cellTextarea.value)
+    }
+    console.log(values);
+  }
