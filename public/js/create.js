@@ -9,9 +9,16 @@ document.addEventListener('DOMContentLoaded', function fillPlayfield() {
     row.classList.add("row");
     row.dataset.row = i;
     for (let j = 0; j < 5; j++) {
-      let cell = `<div class="cell" id="${cellid}">
-                      <textarea type="text" class="celltext">${cellid}</textarea>
+      let cell;
+      if (cellid == 12) {
+        cell = `<div class="cell" id="${cellid}">
+                      <textarea type="text" class="celltext">Free space!!!</textarea>
                   </div>`;
+      } else {
+        cell = `<div class="cell" id="${cellid}">
+                      <textarea type="text" class="celltext"></textarea>
+                  </div>`;
+      }
       row.innerHTML += cell;
       cellid++;
     }
@@ -36,7 +43,7 @@ async function createCard() {
     cardid = data.id;
   } catch (error) {
     console.error('Error creating id for bingo card:', error);
-    return; // Stop further execution if there's an error getting the ID
+    return;
   }
 
   let cells = document.querySelectorAll(".cell");

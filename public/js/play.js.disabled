@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function fillPlayfield() {
       row.classList.add("row");
       row.dataset.row = i;
       for (let j = 0; j < 5; j++) {
-        let cell = `<div class="cell" id="${cellid}">
+        let cell = `<div class="cell" id="${cellid}" onclick="clickedCell(${cellid});">
                       <textarea type="text" class="celltext">${cardData[cellid]}</textarea>
                     </div>`;
         row.innerHTML += cell;
@@ -16,3 +16,9 @@ document.addEventListener('DOMContentLoaded', function fillPlayfield() {
       playfield.appendChild(row);
     }
   }, false);
+
+  function clickedCell(id){
+    let cell = document.getElementById(`${id}`);
+    cell.classList.add("clicked-cell");
+    console.log(`clicked cell id${id}`);
+  };

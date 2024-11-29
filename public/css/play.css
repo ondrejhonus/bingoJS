@@ -60,6 +60,10 @@ div.cell {
     margin: .5em .7em;
 }
 
+.clicked-cell{
+    background-color: rgb(100, 20, 20);
+}
+
 div.icons{
     margin: auto;
     display: flex;

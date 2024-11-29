@@ -17,7 +17,7 @@
     </main>
     <script>
         document.addEventListener('DOMContentLoaded', function fillPlayfield() {
-          const cardData = <%- JSON.stringify(card) %>; // Embed card data into the script
+          const cardData = <%- JSON.stringify(card) %>;
           let playfield = document.querySelector(".playfield");
           let cellid = 0;
           for (let i = 0; i < 5; i++) {
@@ -25,7 +25,7 @@
             row.classList.add("row");
             row.dataset.row = i;
             for (let j = 0; j < 5; j++) {
-              let cell = `<div class="cell" id="${cellid}">
+              let cell = `<div class="cell" id="${cellid}" onclick="clickedCell(${cellid})">
                             <p class="celltext has-text-weight-bold">${cardData[cellid]}</p>
                           </div>`;
               row.innerHTML += cell;
@@ -34,6 +34,12 @@
             playfield.appendChild(row);
           }
         }, false);
+
+        function clickedCell(id){
+        let cell = document.getElementById(`${id}`);
+        cell.classList.toggle("clicked-cell");
+        console.log(`clicked cell id${id}`);
+  };
       </script>
     <footer>
         <div class="icons">
