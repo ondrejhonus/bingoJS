@@ -16,31 +16,39 @@
         <div class="playfield"></div>
     </main>
     <script>
-        document.addEventListener('DOMContentLoaded', function fillPlayfield() {
+      document.addEventListener('DOMContentLoaded', function fillPlayfield() {
           const cardData = <%- JSON.stringify(card) %>;
           let playfield = document.querySelector(".playfield");
           let cellid = 0;
           for (let i = 0; i < 5; i++) {
-            let row = document.createElement("div");
-            row.classList.add("row");
-            row.dataset.row = i;
-            for (let j = 0; j < 5; j++) {
-              let cell = `<div class="cell" id="${cellid}" onclick="clickedCell(${cellid})">
-                            <p class="celltext has-text-weight-bold">${cardData[cellid]}</p>
-                          </div>`;
-              row.innerHTML += cell;
-              cellid++;
-            }
-            playfield.appendChild(row);
+              let row = document.createElement("div");
+              row.classList.add("row");
+              row.dataset.row = i;
+              for (let j = 0; j < 5; j++) {
+                  let cell = `<div class="cell" id="${cellid}" onclick="clickedCell(${cellid})">
+                                  <p class="celltext has-text-weight-bold">${cardData[cellid]}</p>
+                              </div>`;
+                  row.innerHTML += cell;
+                  cellid++;
+              }
+              playfield.appendChild(row);
           }
-        }, false);
+      }, false);
 
-        function clickedCell(id){
-        let cell = document.getElementById(`${id}`);
-        cell.classList.toggle("clicked-cell");
-        console.log(`clicked cell id${id}`);
-  };
-      </script>
+      function clickedCell(id) {
+          let cell = document.getElementById(`${id}`);
+          if (!cell.querySelector('.cross-image')) {
+              let img = document.createElement('img');
+              img.src = 'img/cross.png';
+              img.alt = 'Crossed out';
+              img.classList.add('cross-image');
+              cell.appendChild(img);
+          } else {
+              cell.querySelector('.cross-image').remove();
+          }
+          console.log(`clicked cell id ${id}`);
+      }
+  </script>
     <footer>
         <div class="icons">
             <a href="https://github.com/ondrejhonus/" target="_blank"><img src="img/github.png" alt="GitHub link"></a>

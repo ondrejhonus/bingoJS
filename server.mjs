@@ -19,7 +19,7 @@ const server = createServer(app);
 const io = new Server(server);
 
 let existingIDs = new Set();
-let bingoCards = {}; // Object to store bingo cards
+let bingoCards = {};
 
 function generateUniqueID() {
   let id;
@@ -31,18 +31,17 @@ function generateUniqueID() {
 
 app.post('/get-id', (req, res) => {
   const newID = generateUniqueID();
-  req.session.tempID = newID; // Associate the ID with the session
+  req.session.tempID = newID; // Add ID to session
   existingIDs.add(newID);
   res.json({ id: newID });
 });
 
 io.on('connection', (socket) => {
   socket.on('create-card', ({ values, cardid }) => {
-    // Save the card with the values and cardid to the in-memory storage
     bingoCards[cardid] = values;
     console.log(`Card created with ID: ${cardid}`, values);
 
-    // Emit an event indicating the card was created
+    // Emit that the card was sucessfully created
     socket.emit(`card-created ${cardid}`);
   });
 });
